@@ -1,0 +1,283 @@
+/* ============================================================
+   Milk Frog Cafe - external stylesheet (Group member B)
+   Palette: Naiwa yellow #F5C542 / cream #FDF6E3 / frog green #2F5233
+   ============================================================ */
+:root {
+  --yellow: #F5C542;
+  --yellow-dark: #C9971D;
+  --cream: #FDF6E3;
+  --green: #2F5233;
+  --green-light: #EAF3EA;
+  --error: #B3261E;
+  --shadow: 0 4px 14px rgba(47, 82, 51, .15);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--cream) url("../images/bg.jpg") no-repeat center top / cover;
+  color: var(--green);
+  line-height: 1.6;
+}
+
+/* ---- navigation ---- */
+.nav-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: var(--green);
+  padding: 10px 24px;
+}
+.nav-main .logo {
+  display: flex; align-items: center; gap: 10px;
+  color: #fff; font-size: 1.25rem; font-weight: bold;
+  text-decoration: none;
+}
+.nav-main ul { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.nav-main a {
+  color: #fff; text-decoration: none;
+  padding: 8px 14px; border-radius: 20px;
+  transition: background .3s ease;
+}
+.nav-main a:hover, .nav-main a[aria-current="page"] { background: var(--yellow); color: var(--green); }
+.nav-main a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+
+/* ---- layout ---- */
+main { max-width: 860px; margin: 0 auto; padding: 24px 20px 48px; }
+h1 { font-size: 2rem; color: var(--green); }
+h2 { color: var(--yellow-dark); }
+
+/* ---- hero (home) ---- */
+.hero { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+.hero-img { width: 220px; height: 220px; border-radius: 20px; box-shadow: var(--shadow); transition: transform .4s ease; }
+.hero-img:hover { transform: rotate(-4deg) scale(1.05); }
+.tagline { font-style: italic; font-size: 1.15rem; }
+
+.btn-main {
+  display: inline-block; margin-top: 10px;
+  background: var(--yellow); color: var(--green);
+  padding: 12px 26px; border-radius: 28px;
+  font-weight: bold; font-size: 1.05rem;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: background .3s ease, transform .3s ease;
+}
+.btn-main:hover { background: var(--yellow-dark); transform: translateY(-2px); }
+.btn-main:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+
+/* Shneiderman rule 1: strive for consistency - same style family as .btn-main */
+.btn-secondary {
+  display: inline-block; margin-top: 10px; margin-left: 10px;
+  background: #fff; color: var(--green);
+  padding: 12px 26px; border-radius: 28px;
+  font-weight: bold; font-size: 1.05rem;
+  border: 2px solid var(--green); cursor: pointer;
+  transition: background .3s ease, transform .3s ease;
+  font-family: inherit;
+}
+.btn-secondary:hover { background: var(--green-light); transform: translateY(-2px); }
+.btn-secondary:focus-visible { outline: 3px solid var(--yellow-dark); outline-offset: 2px; }
+
+.form-actions { display: flex; flex-wrap: wrap; }
+
+/* Shneiderman rule 3: informative feedback - disabled state while "sending" */
+.btn-main[disabled] { opacity: .6; cursor: wait; transform: none; }
+
+/* ---- menu cards (member A: click-to-reveal animation) ---- */
+.menu-list { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; }
+.card-drink { background: #fff; border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
+.card-head {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  background: none; border: none; cursor: pointer;
+  padding: 16px 20px; font: inherit; text-align: left;
+}
+.card-head:hover { background: var(--green-light); }
+.card-head:focus-visible { outline: 3px solid var(--green); outline-offset: -3px; }
+.card-head .dot { width: 18px; height: 18px; border-radius: 50%; flex: none; }
+.card-name { font-weight: bold; font-size: 1.1rem; flex: 1; color: var(--green); }
+.card-price { color: var(--yellow-dark); font-weight: bold; }
+.card-detail { padding: 0 20px 16px; color: #3d4d3e; }
+.card-story { font-style: italic; color: var(--yellow-dark); }
+
+/* ---- gallery (member B: hover zoom + lightbox) ---- */
+.gal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; list-style: none; padding: 0; margin: 18px 0; }
+.gal-btn { border: none; padding: 0; background: none; cursor: zoom-in; display: block; width: 100%; }
+.gal-btn img { width: 100%; display: block; border-radius: 12px; box-shadow: var(--shadow); transition: transform .35s ease, box-shadow .35s ease; }
+.gal-btn:hover img { transform: scale(1.06); box-shadow: 0 10px 24px rgba(47,82,51,.28); }
+.gal-btn:focus-visible img { outline: 3px solid var(--green); }
+.gal-name { display: block; text-align: center; font-size: .9rem; margin-top: 6px; }
+
+.lightbox[hidden] { display: none; }
+.lightbox {
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(20, 30, 20, .85);
+  display: flex; align-items: center; justify-content: center;
+}
+.lightbox img { max-width: 80vw; max-height: 80vh; border-radius: 12px; }
+.lb-close {
+  position: absolute; top: 18px; right: 26px;
+  font-size: 2.4rem; color: #fff; background: none; border: none; cursor: pointer;
+}
+
+/* ---- order form (member C: validation) ---- */
+#order-form { background: #fff; border-radius: 14px; box-shadow: var(--shadow); padding: 24px; max-width: 560px; }
+.form-row { margin-bottom: 16px; display: flex; flex-direction: column; }
+.form-row label { font-weight: bold; margin-bottom: 5px; }
+.form-row input, .form-row select, .form-row textarea {
+  font: inherit; padding: 10px 12px;
+  border: 2px solid #cbd5cb; border-radius: 8px; background: #fff; color: var(--green);
+}
+.form-row input:hover, .form-row select:hover { border-color: var(--yellow-dark); }
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible {
+  outline: 3px solid var(--yellow); outline-offset: 1px; border-color: var(--green);
+}
+.form-row input.invalid { border-color: var(--error); }
+.error { color: var(--error); font-size: .9rem; min-height: 1.2em; margin-top: 4px; }
+
+.confirmation {
+  margin-top: 20px; padding: 18px 22px;
+  background: var(--green-light); border-left: 5px solid var(--green);
+  border-radius: 10px;
+}
+
+/* ---- about ---- */
+.team-table { width: 100%; border-collapse: collapse; margin-top: 14px; background: #fff; box-shadow: var(--shadow); border-radius: 12px; overflow: hidden; }
+.team-table th { background: var(--green); color: #fff; text-align: left; padding: 10px 14px; }
+.team-table td { border-top: 1px solid #dfe7df; padding: 10px 14px; vertical-align: top; }
+.team-table tbody tr:nth-child(even) { background: var(--green-light); }
+
+
+/* ============================================================
+   Animation system - Member A
+   Follows Shneiderman rules 3 (feedback), 7 (user control):
+   every animation answers a user action, none blocks input.
+   ============================================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50%      { transform: translateY(-14px) rotate(2deg); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(.78); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes popIn {
+  0%   { transform: scale(.72); opacity: 0; }
+  60%  { transform: scale(1.06); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Home: Naiwa gently floats - gives the page life (decorative) */
+/* Home: Naiwa gently floats - gives the page life (decorative) */
+.hero-img { animation: float 3.5s ease-in-out infinite; }
+/* Parallax wrapper: JS moves this wrapper, float animation keeps working on the img inside */
+.hero-mascot { transition: transform .25s ease-out; will-change: transform; }
+
+/* Hero text enters with a soft rise after the page loads */
+.hero-enter .hero-text { animation: fadeUp .7s ease both; }
+.hero-enter .tagline   { animation: fadeUp .7s ease .25s both; }
+.hero-enter .btn-main  { animation: fadeUp .7s ease .5s both; }
+
+/* Shiny button: a light streak sweeps across on hover (pure CSS) */
+.btn-main { position: relative; overflow: hidden; }
+.btn-main::after {
+  content: "";
+  position: absolute; top: 0; left: -80%;
+  width: 50%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent);
+  transform: skewX(-20deg);
+  transition: left .55s ease;
+}
+.btn-main:hover::after { left: 130%; }
+
+/* Nav shrinks after scrolling (JS toggles .shrink) */
+.nav-main { transition: padding .3s ease, box-shadow .3s ease; }
+.nav-main.shrink {
+  padding: 4px 24px;
+  box-shadow: 0 4px 18px rgba(47,82,51,.35);
+}
+.nav-main.shrink .logo img { width: 26px; height: 26px; }
+
+/* Menu cards fade up as they scroll into view (JS adds .in-view) */
+.card-drink { opacity: 0; transform: translateY(26px); }
+.card-drink.in-view { animation: fadeUp .55s ease both; }
+
+/* Lightbox: frosted-glass blur behind the image */
+.lightbox { backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px); }
+.lb-counter {
+  position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+  color: #fff; font-size: 1rem; letter-spacing: 2px;
+}
+
+/* Confirmation: hand-drawn checkmark draws itself (stroke animation) */
+.confirmation svg.checkmark { width: 56px; height: 56px; display: block; margin: 0 auto 8px; }
+.confirmation svg.checkmark circle {
+  fill: none; stroke: #2F5233; stroke-width: 3;
+  stroke-dasharray: 166; stroke-dashoffset: 166;
+  animation: draw 0.6s ease forwards;
+}
+.confirmation svg.checkmark path {
+  fill: none; stroke: #2F5233; stroke-width: 4; stroke-linecap: round;
+  stroke-dasharray: 48; stroke-dashoffset: 48;
+  animation: draw 0.35s ease .55s forwards;
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+/* Accessibility: users who prefer reduced motion get a calm site */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .card-drink { opacity: 1; transform: none; }
+}
+
+/* Menu cards: dim the others while one is open, so focus is clear */
+.card-drink { transition: opacity .35s ease, transform .35s ease; }
+.card-drink.dimmed { opacity: .4; transform: scale(.98); }
+
+/* Menu detail: content slides in from the right in a staggered chain */
+.card-detail .reveal-item {
+  opacity: 0;
+  transform: translateY(14px);
+  margin-left: 36px;
+  transition: opacity .35s ease, transform .35s ease, margin-left .35s ease;
+}
+.card-detail.open .reveal-item { opacity: 1; transform: none; margin-left: 0; }
+.card-detail.open .reveal-item:nth-child(2) { transition-delay: .13s; }
+
+/* Gallery: thumbnails enter one by one on page load */
+.gal-grid li { animation: fadeUp .55s ease both; }
+.gal-grid li:nth-child(1) { animation-delay: .05s; }
+.gal-grid li:nth-child(2) { animation-delay: .14s; }
+.gal-grid li:nth-child(3) { animation-delay: .23s; }
+.gal-grid li:nth-child(4) { animation-delay: .32s; }
+.gal-grid li:nth-child(5) { animation-delay: .41s; }
+.gal-grid li:nth-child(6) { animation-delay: .50s; }
+.gal-grid li:nth-child(7) { animation-delay: .59s; }
+.gal-grid li:nth-child(8) { animation-delay: .68s; }
+.gal-grid li:nth-child(9) { animation-delay: .77s; }
+
+/* Lightbox: image zooms in when opened */
+.lightbox img { animation: zoomIn .32s ease; }
+
+/* Order confirmation: celebratory pop */
+.confirmation { animation: popIn .5s ease; }
+
+/* ---- footer / a11y helper ---- */
+.site-footer { background: var(--green); color: var(--cream); text-align: center; padding: 16px; font-size: .9rem; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+@media (max-width: 640px) {
+  .gal-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { justify-content: center; text-align: center; }
+}
