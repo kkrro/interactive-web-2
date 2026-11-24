@@ -1,0 +1,103 @@
+<!-- Menu page - Member A (20 pts). Click-to-reveal cards use slideDown, following Shneiderman rule 3 (informative feedback). -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | Milk Frog Cafe</title>
+<meta name="description" content="Click drinks to reveal ingredients and Naiwa stories.">
+<link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-3.7.1.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<nav class="nav-main" aria-label="Main navigation">
+  <a href="index.html" class="logo" aria-label="Milk Frog Cafe home"><img src="images/favicon.jpg" alt="" width="34" height="34">Milk Frog Caf&eacute;</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html" aria-current="page">Menu</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="order.html">Order</a></li>
+    <li><a href="about.html">About &amp; Team</a></li>
+  </ul>
+</nav>
+<main id="main-content">
+
+<h1>Menu</h1>
+<p>Click any drink to reveal its secret ingredients and a message from Naiwa.</p>
+<div class="menu-list">
+
+<article class="card-drink">
+  <button class="card-head" type="button" aria-expanded="false" aria-controls="drink-detail-0">
+    <span class="dot" style="background:#F5C542"></span>
+    <span class="card-name">Milky Frog Latte</span>
+    <span class="card-price">£3.80</span>
+  </button>
+  <div class="card-detail" id="drink-detail-0" hidden>
+    <p class="card-ing reveal-item"><strong>Ingredients:</strong> Espresso, steamed milk, honey foam</p>
+    <p class="card-story reveal-item">Naiwa says: I was born inside this cup. Cozy.</p>
+  </div>
+</article>
+<article class="card-drink">
+  <button class="card-head" type="button" aria-expanded="false" aria-controls="drink-detail-1">
+    <span class="dot" style="background:#8FBC5A"></span>
+    <span class="card-name">Matcha Milk Frog</span>
+    <span class="card-price">£4.20</span>
+  </button>
+  <div class="card-detail" id="drink-detail-1" hidden>
+    <p class="card-ing reveal-item"><strong>Ingredients:</strong> Matcha, oat milk, condensed milk</p>
+    <p class="card-story reveal-item">Naiwa says: green outside, soft inside. Just like me.</p>
+  </div>
+</article>
+<article class="card-drink">
+  <button class="card-head" type="button" aria-expanded="false" aria-controls="drink-detail-2">
+    <span class="dot" style="background:#C98F2B"></span>
+    <span class="card-name">Custard Americano</span>
+    <span class="card-price">£3.50</span>
+  </button>
+  <div class="card-detail" id="drink-detail-2" hidden>
+    <p class="card-ing reveal-item"><strong>Ingredients:</strong> Americano, custard syrup, cream top</p>
+    <p class="card-story reveal-item">Naiwa says: bitter coffee, sweet me.</p>
+  </div>
+</article>
+<article class="card-drink">
+  <button class="card-head" type="button" aria-expanded="false" aria-controls="drink-detail-3">
+    <span class="dot" style="background:#5A8FBC"></span>
+    <span class="card-name">Lotus Cold Brew</span>
+    <span class="card-price">£4.00</span>
+  </button>
+  <div class="card-detail" id="drink-detail-3" hidden>
+    <p class="card-ing reveal-item"><strong>Ingredients:</strong> Cold brew, lotus biscuit crumble</p>
+    <p class="card-story reveal-item">Naiwa says: I sat on this recipe for 12 hours. Cold brew, warm frog.</p>
+  </div>
+</article>
+<article class="card-drink">
+  <button class="card-head" type="button" aria-expanded="false" aria-controls="drink-detail-4">
+    <span class="dot" style="background:#8B5E3C"></span>
+    <span class="card-name">Frog Prince Mocha</span>
+    <span class="card-price">£4.50</span>
+  </button>
+  <div class="card-detail" id="drink-detail-4" hidden>
+    <p class="card-ing reveal-item"><strong>Ingredients:</strong> Mocha, dark chocolate, milk foam</p>
+    <p class="card-story reveal-item">Naiwa says: kiss the cup and I become your prince.</p>
+  </div>
+</article>
+<article class="card-drink">
+  <button class="card-head" type="button" aria-expanded="false" aria-controls="drink-detail-5">
+    <span class="dot" style="background:#E0A82E"></span>
+    <span class="card-name">Honey Milk Brew</span>
+    <span class="card-price">£3.90</span>
+  </button>
+  <div class="card-detail" id="drink-detail-5" hidden>
+    <p class="card-ing reveal-item"><strong>Ingredients:</strong> Black tea, honey, fresh milk</p>
+    <p class="card-story reveal-item">Naiwa says: 100 cups of this and I will finally 释怀 (let it go).</p>
+  </div>
+</article>
+</div>
+</main>
+<footer class="site-footer">
+  <p>&copy; 2026 Milk Frog Caf&eacute; &mdash; a student project (COM109 Coursework 2). Don&rsquo;t look at me like that.</p>
+</footer>
+</body>
+</html>
