@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Milk Frog Cafe</title>
+<meta name="description" content="Photos and moments of Naiwa the milk frog mascot.">
+<link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</head>
+<body>
+<nav class="nav-main" aria-label="Main navigation">
+  <a href="index.html" class="logo" aria-label="Milk Frog Cafe home"><img src="images/favicon.jpg" alt="" width="34" height="34">Milk Frog Caf&eacute;</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+    <li><a href="order.html">Order</a></li>
+    <li><a href="about.html">About &amp; Team</a></li>
+  </ul>
+</nav>
+<main id="main-content">
+<h1>Gallery</h1>
+<p>Hover to zoom, click to view full size.</p>
+<ul class="gal-grid">
+<li><button type="button" class="gal-btn" data-src="images/gallery1.jpg" data-name="Guitar Solo">
+      <img src="images/gallery1.jpg" alt="Naiwa the milk frog playing guitar on a sunlit windowsill"></button>
+      <span class="gal-name">Guitar Solo</span></li><li><button type="button" class="gal-btn" data-src="images/gallery2.jpg" data-name="Bloom &amp; Stars">
+      <img src="images/gallery2.jpg" alt="Naiwa among torn starry skies and vintage flowers"></button>
+      <span class="gal-name">Bloom &amp; Stars</span></li><li><button type="button" class="gal-btn" data-src="images/gallery3.jpg" data-name="Cloud Listening">
+      <img src="images/gallery3.jpg" alt="Naiwa wearing headphones sitting above the clouds"></button>
+      <span class="gal-name">Cloud Listening</span></li><li><button type="button" class="gal-btn" data-src="images/gallery4.jpg" data-name="Moody Walk">
+      <img src="images/gallery4.jpg" alt="Naiwa in a dark coat standing in the misty highlands"></button>
+      <span class="gal-name">Moody Walk</span></li><li><button type="button" class="gal-btn" data-src="images/gallery5.jpg" data-name="Flower Picking">
+      <img src="images/gallery5.jpg" alt="Naiwa picking flowers on a sunny meadow"></button>
+      <span class="gal-name">Flower Picking</span></li><li><button type="button" class="gal-btn" data-src="images/gallery6.jpg" data-name="Blanket Nap">
+      <img src="images/gallery6.jpg" alt="Naiwa napping under a cozy blue blanket"></button>
+      <span class="gal-name">Blanket Nap</span></li><li><button type="button" class="gal-btn" data-src="images/gallery7.jpg" data-name="Cloud Nap">
+      <img src="images/gallery7.jpg" alt="Naiwa sleeping on a small cloud in the blue sky"></button>
+      <span class="gal-name">Cloud Nap</span></li><li><button type="button" class="gal-btn" data-src="images/gallery8.jpg" data-name="Ascension">
+      <img src="images/gallery8.jpg" alt="Naiwa glowing and floating above the clouds into the stars"></button>
+      <span class="gal-name">Ascension</span></li><li><button type="button" class="gal-btn" data-src="images/gallery9.jpg" data-name="City Walk">
+      <img src="images/gallery9.jpg" alt="Naiwa standing calmly in a busy monochrome crowd"></button>
+      <span class="gal-name">City Walk</span></li>
+</ul>
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" type="button" aria-label="Close image view">&times;</button>
+  <img id="lb-img" src="" alt="">
+</div>
+</main>
+<footer class="site-footer"><p>&copy; 2026 Milk Frog Caf&eacute; &mdash; a student project (COM109 Coursework 2). Don&rsquo;t look at me like that.</p></footer>
+</body>
+</html>

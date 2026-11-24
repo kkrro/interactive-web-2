@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order | Milk Frog Cafe</title>
+<meta name="description" content="Pre-order milk frog drinks with validated form.">
+<link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+<script src="js/validate.js" defer></script>
+</head>
+<body>
+<nav class="nav-main" aria-label="Main navigation">
+  <a href="index.html" class="logo" aria-label="Milk Frog Cafe home"><img src="images/favicon.jpg" alt="" width="34" height="34">Milk Frog Caf&eacute;</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="order.html" aria-current="page">Order</a></li>
+    <li><a href="about.html">About &amp; Team</a></li>
+  </ul>
+</nav>
+<main id="main-content">
+
+<h1>Order</h1>
+<p>Pre-order your drinks. Naiwa will hold them (gently) at the counter.</p>
+<form id="order-form" novalidate>
+  <div class="form-row">
+    <label for="name">Full name <span aria-hidden="true">*</span></label>
+    <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="err-name">
+    <span class="error" id="err-name" role="alert"></span>
+  </div>
+  <div class="form-row">
+    <label for="email">Email <span aria-hidden="true">*</span></label>
+    <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="err-email">
+    <span class="error" id="err-email" role="alert"></span>
+  </div>
+  <div class="form-row">
+    <label for="phone">Phone <span aria-hidden="true">*</span></label>
+    <input type="tel" id="phone" name="phone" autocomplete="tel" required aria-describedby="err-phone">
+    <span class="error" id="err-phone" role="alert"></span>
+  </div>
+  <div class="form-row">
+    <label for="drink">Drink <span aria-hidden="true">*</span></label>
+    <select id="drink" name="drink" required aria-describedby="err-drink">
+      <option value="">-- choose a drink --</option>
+      <option>Milky Frog Latte</option><option>Matcha Milk Frog</option><option>Custard Americano</option>
+      <option>Lotus Cold Brew</option><option>Frog Prince Mocha</option><option>Honey Milk Brew</option>
+    </select>
+    <span class="error" id="err-drink" role="alert"></span>
+  </div>
+  <div class="form-row">
+    <label for="cups">Number of cups (1&ndash;20) <span aria-hidden="true">*</span></label>
+    <input type="number" id="cups" name="cups" min="1" max="20" required aria-describedby="err-cups">
+    <span class="error" id="err-cups" role="alert"></span>
+  </div>
+  <div class="form-row">
+    <label for="date">Pickup date <span aria-hidden="true">*</span></label>
+    <input type="date" id="date" name="date" required aria-describedby="err-date">
+    <span class="error" id="err-date" role="alert"></span>
+  </div>
+  <div class="form-row">
+    <label for="notes">Notes (optional)</label>
+    <textarea id="notes" name="notes" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn-main">Place Order</button>
+</form>
+<section id="confirmation" class="confirmation" hidden aria-live="polite"></section>
+</main>
+<footer class="site-footer">
+  <p>&copy; 2026 Milk Frog Caf&eacute; &mdash; a student project (COM109 Coursework 2). Don&rsquo;t look at me like that.</p>
+</footer>
+</body>
+</html>
