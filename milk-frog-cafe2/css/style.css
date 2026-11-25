@@ -150,6 +150,9 @@ h2 { color: var(--yellow-dark); }
 
 /* cookie notes */
 .visit-box { margin-top: 18px; font-size: .95rem; color: var(--yellow-dark); }
+.today { font-size: .9rem; margin-bottom: 4px; }
+.price-line { margin: 4px 0 0; font-size: 1.05rem; }
+.price-line strong { color: var(--yellow-dark); }
 .welcome-back { background: var(--green-light); border-left: 4px solid var(--yellow); padding: 10px 14px; border-radius: 8px; }
 .welcome-back[hidden] { display: none; }
 

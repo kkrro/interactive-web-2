@@ -35,9 +35,29 @@ $(function () {
       $('#welcome-back').removeAttr('hidden')
         .text('Welcome back, ' + name + ' - your details are filled in.');
     }
+    // localStorage keeps a short history of recent orders
+    var history = [];
+    try {
+      history = JSON.parse(localStorage.getItem('recentOrders')) || [];
+    } catch (e) {
+      history = [];
+    }
+    if (history.length) {
+      var last = history[0];
+      $('#last-order').removeAttr('hidden')
+        .text('Last order: ' + last.drink + ' x' + last.cups + ' on ' + last.date + '.');
+    }
+
     $('#order-form').on('submit', function () {
+      if ($('.invalid').length) return;   // only save valid orders
       setCookie('customerName', $('#name').val(), 30);
       setCookie('customerEmail', $('#email').val(), 30);
+      history.unshift({
+        drink: $('#drink').val(),
+        cups: $('#cups').val(),
+        date: new Date().toLocaleDateString('en-GB')
+      });
+      localStorage.setItem('recentOrders', JSON.stringify(history.slice(0, 3)));
     });
   }
 });

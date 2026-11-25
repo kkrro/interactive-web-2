@@ -26,6 +26,7 @@
 
 <h1>Order</h1>
 <p id="welcome-back" class="welcome-back" hidden></p>
+<p id="last-order" class="welcome-back" hidden></p>
 <p>Pre-order your drinks. Naiwa will hold them (gently) at the counter.</p>
 <form id="order-form" novalidate>
   <div class="form-row">
@@ -57,6 +58,7 @@
     <input type="number" id="cups" name="cups" min="1" max="20" required aria-describedby="err-cups">
     <span class="error" id="err-cups" role="alert"></span>
   </div>
+  <p class="price-line">Total: <strong id="total-price">&pound;0.00</strong></p>
   <div class="form-row">
     <label for="date">Pickup date <span aria-hidden="true">*</span></label>
     <input type="date" id="date" name="date" required aria-describedby="err-date">

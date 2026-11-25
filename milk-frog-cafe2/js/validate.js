@@ -2,6 +2,22 @@
 $(function () {
   var $form = $('#order-form');
 
+  // live price calculator
+  var prices = {
+    'Milky Frog Latte': 3.80,
+    'Matcha Milk Frog': 4.20,
+    'Custard Americano': 3.50,
+    'Lotus Cold Brew': 4.00,
+    'Frog Prince Mocha': 4.50,
+    'Honey Milk Brew': 3.90
+  };
+  function updateTotal() {
+    var drink = $('#drink').val();
+    var cups = Number($('#cups').val()) || 0;
+    $('#total-price').text('\u00a3' + ((prices[drink] || 0) * cups).toFixed(2));
+  }
+  $('#drink, #cups').on('change input', updateTotal);
+
   // reset also clears any error messages
   $('button[type="reset"]').on('click', function () {
     $('.error').text('');
