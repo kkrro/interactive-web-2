@@ -67,7 +67,7 @@ h2 { color: var(--yellow-dark); }
 .btn-main:hover { background: var(--yellow-dark); transform: translateY(-2px); }
 .btn-main:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
 
-/* Shneiderman rule 1: strive for consistency - same style family as .btn-main */
+/* secondary button shares the main button's shape */
 .btn-secondary {
   display: inline-block; margin-top: 10px; margin-left: 10px;
   background: #fff; color: var(--green);
@@ -82,7 +82,7 @@ h2 { color: var(--yellow-dark); }
 
 .form-actions { display: flex; flex-wrap: wrap; }
 
-/* Shneiderman rule 3: informative feedback - disabled state while "sending" */
+/* disabled look while the order is being sent */
 .btn-main[disabled] { opacity: .6; cursor: wait; transform: none; }
 
 /* ---- menu cards (member A: click-to-reveal animation) ---- */
@@ -148,12 +148,12 @@ h2 { color: var(--yellow-dark); }
 .team-table td { border-top: 1px solid #dfe7df; padding: 10px 14px; vertical-align: top; }
 .team-table tbody tr:nth-child(even) { background: var(--green-light); }
 
+/* cookie notes */
+.visit-box { margin-top: 18px; font-size: .95rem; color: var(--yellow-dark); }
+.welcome-back { background: var(--green-light); border-left: 4px solid var(--yellow); padding: 10px 14px; border-radius: 8px; }
+.welcome-back[hidden] { display: none; }
 
-/* ============================================================
-   Animation system - Member A
-   Follows Shneiderman rules 3 (feedback), 7 (user control):
-   every animation answers a user action, none blocks input.
-   ============================================================ */
+/* ---- animations ---- */
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(-2deg); }
   50%      { transform: translateY(-14px) rotate(2deg); }
@@ -172,8 +172,7 @@ h2 { color: var(--yellow-dark); }
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* Home: Naiwa gently floats - gives the page life (decorative) */
-/* Home: Naiwa gently floats - gives the page life (decorative) */
+/* Naiwa gently floats on the home page */
 .hero-img { animation: float 3.5s ease-in-out infinite; }
 /* Parallax wrapper: JS moves this wrapper, float animation keeps working on the img inside */
 .hero-mascot { transition: transform .25s ease-out; will-change: transform; }

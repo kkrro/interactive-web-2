@@ -1,18 +1,8 @@
-/* ============================================================
-   validate.js - Member C: order form validation + DOM update
-   ============================================================ */
-/* ============================================================
-   validate.js - Member C: order form validation + DOM update
-   Theory note: follows Shneiderman's (1986) eight golden rules
-   - rule 3 informative feedback: instant inline error messages
-   - rule 4 yield closure:      "Order Confirmed" summary
-   - rule 5 simple error handling: short plain-language errors
-   - rule 6 easy reversal:      Clear Form button resets everything
-   ============================================================ */
+/* validate.js - order form checks and confirmation */
 $(function () {
   var $form = $('#order-form');
 
-  // rule 6: the Clear Form button must also clear error messages
+  // reset also clears any error messages
   $('button[type="reset"]').on('click', function () {
     $('.error').text('');
     $('input, select').removeClass('invalid');
@@ -62,7 +52,7 @@ $(function () {
 
   $form.on('submit', function (e) {
     e.preventDefault();
-    // rule 3: button becomes disabled + "Sending..." so users see the click worked
+    // show a sending state so the click feels answered
     var $btn = $('#submit-btn');
     $btn.attr('disabled', true).text('Sending...');
     var ok = ['name','email','phone','drink','cups','date']
@@ -70,7 +60,7 @@ $(function () {
       .every(Boolean);
 
     if (!ok) {
-      $('.invalid').first().trigger('focus');   // rule 8: users do not have to hunt for errors
+      $('.invalid').first().trigger('focus');   // jump to the first error
       $btn.removeAttr('disabled').text('Place Order');
       return;
     }
@@ -93,6 +83,6 @@ $(function () {
     );
     $c.removeAttr('hidden').hide().slideDown(350);
     $c[0].scrollIntoView({ behavior: 'smooth' });
-    $btn.removeAttr('disabled').text('Place Order');   // restore for another order (rule 6)
+    $btn.removeAttr('disabled').text('Place Order');   // ready for another order
   });
 });

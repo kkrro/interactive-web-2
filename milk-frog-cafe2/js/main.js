@@ -1,29 +1,19 @@
-/* ============================================================
-   main.js - Member A: menu click-to-reveal animation + lightbox
-   (jQuery CDN is loaded with defer in each page)
-   ============================================================ */
+/* main.js - menu cards, lightbox and small page effects */
 $(function () {
-  // Theory note (Shneiderman golden rules):
-  // rule 2 shortcuts:  Escape key closes the lightbox instantly
-  // rule 3 feedback:   every click is answered with an animation
-  // rule 6 reversal:   open cards can be closed again by clicking
-  // rule 7 control:    nothing animates unless the user initiates it
-  // ---- Menu page: click a drink card, slideDown reveals details ----
-  // Layered animation: (1) panel slides down, (2) inner items slide in
-  // from the right one after another, (3) other cards dim to keep focus.
+  // ---- Menu page: click a drink card to reveal its details ----
   $('.card-head').on('click', function () {
     var $btn = $(this);
     var $detail = $('#' + $btn.attr('aria-controls'));
     var $card = $btn.closest('.card-drink');
     var isOpen = $btn.attr('aria-expanded') === 'true';
 
-    // close any open card first (only one stays open - consistency)
+    // only one card stays open at a time
     $('.card-head[aria-expanded="true"]').not($btn).attr('aria-expanded', 'false')
       .closest('.card-drink').removeClass('dimmed')
       .find('.card-detail').slideUp(250).attr('hidden', true).removeClass('open');
 
     if (isOpen) {
-      // reverse everything: rule 6, easy reversal of actions
+      // click again to close it
       $detail.removeClass('open').slideUp(300, function () { $detail.attr('hidden', true); });
       $btn.attr('aria-expanded', 'false');
       $card.removeClass('dimmed');
