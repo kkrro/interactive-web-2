@@ -54,26 +54,31 @@ void printList(sqlist *L) {
 		printf("第%d号是%d\n",i+1,L->data[i]);
 	}
 }
-int main(){
-    sqlist L; 
-    int num=0;
-    initlist(&L);
-    for(int i=0;i<L.capacity-1;i++){
-        printf("请输入元素，若想结束请输入“-1”。");
-        scanf("%d",&num);
-        if(num!=-1){
-            insertTail(&L,num);
-        }
-        else{
-            break;
-        }
-    }
-    printList(&L);
-    insertAT(&L,5,21);
-    printList(&L);
-    delelem(&L,5);
-    printList(&L);
-return 0;
+int inputlist(sqlist *L) {
+	int num;
+	while(1) {
+		printf("请输入元素");
+		scanf("%d",&num);
+		if(num==-1) {
+			break;
+		}
+		if(L->Length>=L->capacity) {
+			ex_list(L);
+		}
+		insertTail(L,num);
+	}
+
+}
+int main() {
+	sqlist L;
+	initlist(&L);
+	inputlist(&L);
+	printList(&L);
+	insertAT(&L,5,21);
+	printList(&L);
+	delelem(&L,5);
+	printList(&L);
+	return 0;
 }
 
 
